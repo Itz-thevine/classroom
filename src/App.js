@@ -6,6 +6,7 @@ import Index from './pages/Index';
 import Dashboard from './pages/dashboard/Dashboard';
 import Profile from './pages/profile/Profile';
 import Courses from './pages/courses/Courses';
+import SinglePage from './pages/singlePage/SinglePage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/courses' element={<Courses/>}/>
+        <Route path='/courses/singlePage' element={<SinglePage/>}/>
       </Routes>
     </div>
   );
