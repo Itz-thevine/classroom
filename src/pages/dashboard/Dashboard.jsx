@@ -3,6 +3,8 @@ import Navigation from '../../component/navigation/Navigation'
 import { useLocation } from 'react-router-dom'
 import PageName from '../../component/pageName/PageName';
 import Dash from '../../assets/dashboard.png'
+import { Outlet } from 'react-router-dom';
+
 
 function Dashboard() {
 

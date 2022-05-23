@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../assets/logo.png'
 import Button from '../button/Button'
+import {Link} from 'react-router-dom'
 
 function Header() {
   return (
@@ -19,7 +20,9 @@ function Header() {
             </ul> */}
           </div>
           <div>
-            <Button text='Log In'/>
+            <Link to='/login'>
+              <Button text='Log In'/>
+            </Link>
           </div>
         </div>
     </div>
