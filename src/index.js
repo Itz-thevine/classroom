@@ -6,6 +6,7 @@ import { createRoot } from 'react-dom/client'
 import firebase from './firebase'
 import { BrowserRouter } from 'react-router-dom'
 
+
 const container = document.getElementById('root');
 const root = createRoot(container);
 

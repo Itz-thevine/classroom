@@ -18,8 +18,8 @@ function App() {
           <Route path='' element={<Dashboard/>}/>
           <Route path='profile' element={<Profile/>}/>
           <Route path='courses' element={<Courses/>}/>
-          <Route path='courses/singlePage' element={<SinglePage/>}/>
         </Route>
+          <Route path='admin/courses/:id' element={<SinglePage/>}/>
       </Routes>
     </div>
   );

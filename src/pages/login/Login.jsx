@@ -6,11 +6,13 @@ import {Link} from 'react-router-dom'
 import {signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth'
 import {auth, provider, emailAndPassword} from '../../firebase'
 import {useNavigate} from 'react-router-dom'
+import Cookie from 'js-cookie'
 
 function Login() {
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
   const [register, setRegister] = useState(false)
+  const [user, setUser] = useState([]);
 
   const changeMail = (email) => {
     setEmail(email)
@@ -31,7 +33,15 @@ function Login() {
   const signInWithGoogleFun= (e) =>{
     e.preventDefault();
     signInWithPopup(auth, provider).then((res)=> {
-      console.log(res)
+      // console.log(res)
+      Cookie.set('token', res.user.accessToken, {
+        expires: 1,
+        secure:true,
+        sameSite: 'strict',
+        path:'/'
+      })
+      localStorage.setItem('users', JSON.stringify(res))
+      navigate('/admin')
       navigate('/admin')
     }).catch((err)=> {
       console.log(err)
@@ -43,8 +53,16 @@ function Login() {
     if (email != null && password != null) {
       
       signInWithEmailAndPassword(auth, email, password).then((res)=> {
-        console.log(res)
-        // navigate('/admin')
+        // console.log(res)
+        Cookie.set('token', res.user.accessToken, {
+          expires: 1,
+          secure:true,
+          sameSite: 'strict',
+          path:'/'
+        })
+        localStorage.setItem('users', JSON.stringify(res))
+        navigate('/admin')
+
         }).catch((err)=> {
           console.log(err)
         })
@@ -58,7 +76,8 @@ function Login() {
       
       createUserWithEmailAndPassword(auth, email, password).then((res)=> {
         console.log(res)
-        // navigate('/admin')
+        setRegister(false)
+        console.log(res)
         }).catch((err)=> {
           console.log(err)
         })
