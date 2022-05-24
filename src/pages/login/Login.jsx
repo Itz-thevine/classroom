@@ -12,7 +12,7 @@ function Login() {
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
   const [register, setRegister] = useState(false)
-  const [user, setUser] = useState([]);
+  // const [user, setUser] = useState([]);
 
   const changeMail = (email) => {
     setEmail(email)
@@ -41,7 +41,6 @@ function Login() {
         path:'/'
       })
       localStorage.setItem('users', JSON.stringify(res))
-      navigate('/admin')
       navigate('/admin')
     }).catch((err)=> {
       console.log(err)

@@ -2,13 +2,14 @@ import React from 'react'
 import blueLogo from '../../assets/logoBlue.png'
 import {Link} from 'react-router-dom'
 import Cookie from 'js-cookie'
-
+import {useNavigate} from 'react-router-dom'
 
 function Navigation() {
+  const navigate = useNavigate() 
 
   const logOut = () => {
     Cookie.remove('token')
-    window.location.reload(false);
+    navigate('/login')
   }
 
   return (
