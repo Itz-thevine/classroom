@@ -19,7 +19,7 @@ function Navigation() {
         </div>
         <div className='mt-28 w-4/5'>
           <ul>
-            <Link to='/admin'><li className='cursor-pointer text-left bg-white rounded-l-lg  text-mainColorTwo w-ex pl-10 font-semibold py-5'>Dashboard</li></Link>
+            <Link to='/admin'><li className='cursor-pointer text-left  rounded-l-lg text-mainColorFour w-ex pl-10 font-semibold py-5'>Dashboard</li></Link>
             <Link to='/admin/profile'><li className='cursor-pointer text-left text-mainColorFour pl-10 font-semibold py-5'>Profile</li></Link>
             <Link to='/admin/courses'><li className='cursor-pointer text-left text-mainColorFour pl-10 font-semibold py-5'>Courses</li></Link>
            <li className='cursor-pointer text-left text-mainColorFour pl-10 font-semibold py-5' onClick={logOut}>Log Out</li>
