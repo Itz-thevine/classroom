@@ -23,11 +23,10 @@ function Dashboard() {
 
 
   return (
-    <div className='flex w-screen'>
-      <Navigation/>
-      <div className='flex flex-col ml-20% w-4/5'>
+    <div className='flex w-screen justify-center lg:justify-start'>
+      <div className='flex flex-col ml-0 lg:ml-20% items-center lg:items-start lg:w-4/5'>
         <PageName page={path}/>
-        <div className=' bg-gradient-to-br rounded-lg flex from-mainColorTwo px-11 w-11/12 h-52  overflow-y-hidden to-mainColorOne ml-16 mt-8'>
+        <div className=' bg-gradient-to-br rounded-lg w-10/12 md:w-full  flex from-mainColorTwo px-11 w-full overflow-x-hidden lg:w-11/12 h-52  overflow-y-hidden to-mainColorOne lg:ml-16 mt-8'>
           <div className='flex flex-col items-start py-12 flex-1'>
             <div className='text-white text-2xl font-semibold'>Welcome,</div>
             <div className='text-white text-4xl font-bold '>{name}</div>

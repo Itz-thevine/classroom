@@ -18,6 +18,9 @@ module.exports = {
         '20%': '18%',
         're': 'calc(100vw - 18%)'
       },
+      screens: {
+        'mobile': '900px'
+      }
     },
   },
   plugins: [],

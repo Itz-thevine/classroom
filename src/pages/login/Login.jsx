@@ -85,17 +85,20 @@ function Login() {
   }
 
   return (
-    <div className='flex'>
-      <div className='flex flex-col flex-1 bg-gradient-to-br lg:h-screen from-mainColorTwo to-mainColorOne py-16 justify-center'>
+    <div className='flex flex-wrap'>
+
+      <div className=' flex-1 flex-col bg-gradient-to-br  lg:h-screen hidden sm:flex from-mainColorTwo to-mainColorOne py-16 justify-center'>
         <p className='text-white font-medium text-4xl mb-2'>Student Log in</p>
         <p className='text-white font-medium text-1xl'>Make sure that your account is secured</p>
         <div className='flex justify-center'>
           <img src={Image} width={450} alt="" />
         </div>
       </div>
-      <div className='flex flex-1 justify-center items-center flex-col'>
+      <div className='flex flex-1 justify-center items-center flex-col h-screen'>
         <div className='flex h-10 mb-16'>
-          <img src={Logo} alt="" width={200} height={45} />
+          <Link to='/classroom'>
+            <img src={Logo} alt="" width={200} height={45} />
+          </Link>
         </div>
         <div className='w-3/5 flex'>
           <form action="w-inherit ">
@@ -111,7 +114,7 @@ function Login() {
               </div>
             </div>
 
-           <div className='flex justify-end my-5'  onClick={(e)=> signInWithGoogleFun(e)}>
+           <div className='flex justify-end my-5 cursor-pointer'  onClick={(e)=> signInWithGoogleFun(e)}>
             <div className=" w-auto flex bg-mainColorTwo shadow-md rounded-lg">
               <div className="p-4 bg-white" >
                 <div className="abcRioButtonSvgImageWithFallback abcRioButtonIconImage abcRioButtonIconImage18" style={{width: '18px', height: '18px'}}>
@@ -130,6 +133,8 @@ function Login() {
           </form>
         </div>
       </div>
+
+
       {
         register && (
           <div className='absolute w-full h-full'>

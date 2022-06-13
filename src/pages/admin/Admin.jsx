@@ -23,7 +23,10 @@ const Admin = () => {
          <div></div> 
       ):(
         <div className='flex w-screen'>
+          <div className='hidden lg:flex'>
             <Navigation/>
+            
+          </div>
             
             <Outlet/>
         </div>

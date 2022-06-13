@@ -11,13 +11,6 @@ function Header() {
               <img src={logo} alt="" width={200} height={45} />
           </div>
           <div className='flex items-center'>
-            {/* <ul className='flex'>
-              <li className='px-7 font-semibold'>About</li>
-              <li className='px-7 font-semibold'>Courses</li>
-              <li className='px-7 font-semibold'>Instructor</li>
-              <li className='px-7 font-semibold'>News</li>
-              <li className='px-7 font-semibold'>Pricing</li>
-            </ul> */}
           </div>
           <div>
             <Link to='/login'>

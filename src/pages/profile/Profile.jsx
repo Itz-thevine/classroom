@@ -24,11 +24,10 @@ function Profile() {
     let d_path = path.charAt(1).toUpperCase() + path.slice(2);
 
   return (
-    <div className='flex w-screen'>
-      <Navigation/>
-      <div className='flex flex-col ml-20% w-4/5'>
+    <div className='flex w-screen justify-center lg:justify-start'>
+      <div className='flex flex-col lg:items-start items-center lg:ml-20% w-full lg:w-4/5'>
         <PageName page={d_path}/>
-        <div className='flex  w-11/12 ml-16 mt-8 flex-col'>
+        <div className='flex px-14 lg:px-0  w-11/12 ml-0 lg:ml-16 mt-8 flex-col'>
           <p className='text-1xl text-mainColorThree font-semibold mb-10 text-left'>Personal Details</p>
           <div className='flex flex-col justify-center'>
               <div className='h-full w-1/5  rounded-full overflow-x-hidden overflow-y-hidden'>
