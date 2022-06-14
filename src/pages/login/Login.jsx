@@ -112,7 +112,7 @@ function Login() {
       </div>
       <div className='flex flex-1 justify-center items-center flex-col h-screen'>
         <div className='flex h-10 mb-16'>
-          <Link to='/'>
+          <Link to='/classroom'>
             <img src={Logo} alt="" width={200} height={45} />
           </Link>
         </div>
