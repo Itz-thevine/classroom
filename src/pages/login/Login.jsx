@@ -4,7 +4,7 @@ import Logo from '../../assets/logo.png';
 import Button from '../../component/button/Button';
 import {Link} from 'react-router-dom'
 import {signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth'
-import {auth, provider, emailAndPassword} from '../../firebase'
+import {auth, provider} from '../../firebase'
 import {useNavigate} from 'react-router-dom'
 import Cookie from 'js-cookie'
 import * as AiIcons from 'react-icons/ai'
@@ -92,7 +92,9 @@ function Login() {
       createUserWithEmailAndPassword(auth, email, password).then((res)=> {
         setRegister(false)
         }).catch((err)=> {
-          setErrMsg(err)
+          let dError = JSON.stringify(err);
+          let getError = JSON.parse(dError) 
+          setErrMsg(getError.code)
         })
       
     }
@@ -149,10 +151,10 @@ function Login() {
           {
             errMsg && (
               <>
-                <div className='absolute bg-red-500 bottom-10 right-10 px-5 py-6 font-bold flex justify-end text-white'>
+                <div className='absolute z-20 bg-red-500 bottom-10 right-10 px-5 py-6 font-bold flex justify-end text-white'>
                     <p>{errMsg}</p>
                 </div>
-                <div className='absolute right-6 bottom-24 text-3xl text-white'>
+                <div className='absolute z-30 right-6 bottom-24 text-3xl text-white'>
                   <div className='bg-slate-800 rounded-2xl' onClick={closeErr}>
                     <AiIcons.AiOutlineCloseCircle/>
                   </div>

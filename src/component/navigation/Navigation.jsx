@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import blueLogo from '../../assets/logoBlue.png'
 import {NavLink, useLocation} from 'react-router-dom'
 import Cookie from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
-import Dashboard from '../../pages/dashboard/Dashboard'
 
 function Navigation() {
   

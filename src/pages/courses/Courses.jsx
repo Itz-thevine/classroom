@@ -1,5 +1,4 @@
 import React from 'react'
-import Navigation from '../../component/navigation/Navigation'
 import { useLocation } from 'react-router-dom'
 import PageName from '../../component/pageName/PageName';
 import Course from '../../component/course/Course';
