@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import blueLogo from '../../assets/logoBlue.png'
-import {Link} from 'react-router-dom'
+import {NavLink, useLocation} from 'react-router-dom'
 import Cookie from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import Dashboard from '../../pages/dashboard/Dashboard'
 
 function Navigation() {
+  
   const navigate = useNavigate() 
 
   const logOut = () => {
@@ -13,10 +14,15 @@ function Navigation() {
     navigate('/login')
   }
   
-const [active, setActive] = useState('');
-const sClicked = (name) => {
-    name === 'dashboard' ? setActive('dashboard'): name ==='profile' ? setActive('profile'): name === 'courses' ? setActive('courses'): setActive('logout');
-}
+  const location = useLocation()
+  console.log(location.pathname)
+
+  const homebg = () => location.pathname === '/admin' ? '#fff' : ''
+  const profilebg = () => location.pathname === '/admin/profile' ? '#fff' : ''
+  const courses = () => location.pathname === '/admin/courses' ? '#fff' : ''
+
+
+
 
   return (
     <div className='bg-mainColorTwo h-3/5 lg:h-screen w-10/12 lg:w-1/5 lg:rounded-r-lg py-14 flex items-center flex-col fixed'>
@@ -25,10 +31,10 @@ const sClicked = (name) => {
         </div>
         <div className=' mt-10 lg:mt-28 w-4/5'>
           <ul>
-            <Link to='/admin'><li className={ active === 'dashboard' ? 'cursor-pointer text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-5 bg-white' : 'cursor-pointer text-center lg:text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5 '} onClick={() => sClicked('dashboard')}>Dashboard</li></Link>
+            <NavLink to='/admin'><li className='cursor-pointer text-center lg:text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5' style={{backgroundColor : homebg() }}>Dashboard</li></NavLink>
 
-            <Link to='/admin/profile'><li className={ active === 'profile' ? 'cursor-pointer text-center lg:text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5 bg-white' : 'cursor-pointer text-center lg:text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5 '}onClick={() => sClicked('profile')}>Profile</li></Link>
-            <Link to='/admin/courses'><li className='cursor-pointer text-center lg:text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5' onClick={() => sClicked('courses')}>Courses</li></Link>
+            <NavLink to='/admin/profile' ><li className='cursor-pointer text-center lg:text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5 ' style={{backgroundColor : profilebg() }}>Profile</li></NavLink>
+            <NavLink to='/admin/courses' ><li className='cursor-pointer text-center lg:text-left  rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5' style={{backgroundColor : courses() }}>Courses</li></NavLink>
            <li className='cursor-pointer text-center lg:text-left e rounded-l-lg text-mainColorFour lg:w-ex pl-10 font-semibold py-3 lg:py-5' onClick={logOut}>Log Out</li>
           </ul>
         </div>

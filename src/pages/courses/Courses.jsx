@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom'
 
 function Courses() {
     const data = db
-    console.log(data)
     // get the path
     const usePathname = () => {
         const location = useLocation();
@@ -24,8 +23,8 @@ function Courses() {
       <PageName page={d_path}/>
       <div className='  lg:px-11 w-11/12 mx-8 lg:ml-16 mt-8 flex flex-wrap'>
         {data.map((datum) => (
-          <div className='mb-10' key={datum.id} style={{display:'flex', width:'50%', justifyContent:'center'}}>
-            <Link to={`/admin/courses/${datum.id}`} className='w-4/5'>
+          <div className='mb-10 mx-5' key={datum.id} style={{display:'flex', justifyContent:'center'}}>
+            <Link to={`/admin/courses/${datum.id}`} className='w-min-4/5 lg:w-fulls'>
               <Course name={datum.name}/> </Link> 
           </div>
         ))}

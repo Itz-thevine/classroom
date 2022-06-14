@@ -7,6 +7,7 @@ import {signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassw
 import {auth, provider, emailAndPassword} from '../../firebase'
 import {useNavigate} from 'react-router-dom'
 import Cookie from 'js-cookie'
+import * as AiIcons from 'react-icons/ai'
 
 function Login() {
   const [email, setEmail] = useState(null)
@@ -30,6 +31,10 @@ function Login() {
   }
 
   const navigate = useNavigate() 
+  
+  //get the error
+  const [errMsg, setErrMsg] = useState(false);
+
   const signInWithGoogleFun= (e) =>{
     e.preventDefault();
     signInWithPopup(auth, provider).then((res)=> {
@@ -42,10 +47,18 @@ function Login() {
       })
       localStorage.setItem('users', JSON.stringify(res))
       navigate('/admin')
+      setErrMsg(false)
     }).catch((err)=> {
-      console.log(err)
+      let dError = JSON.stringify(err);
+      let getError = JSON.parse(dError) 
+      setErrMsg(getError.code)
     })
   }
+
+  const closeErr = () => {
+    setErrMsg(false)
+  }
+
 
   const signWithEmailAndPass= (e) => {
     e.preventDefault();
@@ -61,9 +74,12 @@ function Login() {
         })
         localStorage.setItem('users', JSON.stringify(res))
         navigate('/admin')
-
+        setErrMsg(false)
         }).catch((err)=> {
-          console.log(err)
+          let dError = JSON.stringify(err);
+          let getError = JSON.parse(dError) 
+          setErrMsg(getError.code)
+          
         })
       
     }
@@ -74,11 +90,9 @@ function Login() {
     if (email != null && password != null) {
       
       createUserWithEmailAndPassword(auth, email, password).then((res)=> {
-        console.log(res)
         setRegister(false)
-        console.log(res)
         }).catch((err)=> {
-          console.log(err)
+          setErrMsg(err)
         })
       
     }
@@ -132,6 +146,20 @@ function Login() {
 
           </form>
         </div>
+          {
+            errMsg && (
+              <>
+                <div className='absolute bg-red-500 bottom-10 right-10 px-5 py-6 font-bold flex justify-end text-white'>
+                    <p>{errMsg}</p>
+                </div>
+                <div className='absolute right-6 bottom-24 text-3xl text-white'>
+                  <div className='bg-slate-800 rounded-2xl' onClick={closeErr}>
+                    <AiIcons.AiOutlineCloseCircle/>
+                  </div>
+                </div>
+              </>
+            )
+          }
       </div>
 
 

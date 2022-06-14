@@ -1,6 +1,8 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import db from '../../db/db'
+import {Link} from 'react-router-dom'
+import * as BiIcons from 'react-icons/bi'
 
 function SinglePage() {
   let {id} = useParams()
@@ -11,10 +13,18 @@ function SinglePage() {
 
   return (
     <div>
-        <video controls className='w-full max-h-96' src='https://youtu.be/Yu2Pvc1ObRw'>
-        </video>
-        <div className='container flex mx-auto mt-10 flex-col items-start'>
+        <iframe className='video w-full' style={{height: '50vh'}}
+            title='Youtube player'
+            sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+            src={`https://youtube.com/embed/${'UT5F9AXjwhg'}?autoplay=0`}>
+          </iframe>
+        <div className='container flex mx-auto mt-10 flex-col items-start px-10 lg:px-0'>
+            <div className='flex justify-between items-center w-full'>
             <p className='text-3xl font-bold'>{data.name}</p>
+            <Link to='/admin/courses' className='text-3xl'>
+              <BiIcons.BiArrowBack/>
+            </Link>
+            </div>
             {/* <p className='text-mainColorFour text-sm py-5'>Biology</p> */}
             <div className='flex flex-col items-start'>
               <p className='text-2xl font-semibold mt-5 '>Introduction:</p>
