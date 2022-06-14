@@ -29,7 +29,7 @@ function Dashboard() {
           <div className='flex flex-col w-auto items-start py-12 lg:flex-1'>
             <div className='text-white text-2xl font-semibold'>Welcome,</div>
             <div className='text-white text-4xl text-left flex justify-start font-bold w-full'>{name}</div>
-            <div className='text-white text-sm lg:text-base'>Start your Learning with us</div>
+            <div className='text-white text-sm w-52 text-left lg:text-base'>Start your Learning with us</div>
           </div>
           <div className='lg:flex-1 lg:flex'>
             <img src={Dash} alt="" width={300} style={{marginLeft: '195px', marginTop: '-80px'}}/>
